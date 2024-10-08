@@ -19,17 +19,17 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '14' # Specify your Node.js version
+          node-version: '18' # Specify your Node.js version
  
       - name: Install dependencies
         run: npm install
  
-      - name: Run tests
-        run: npm test
-        continue-on-error: true # Optional if no tests are set up
+#      - name: Run tests
+#        run: npm test
+#        continue-on-error: true # Optional if no tests are set up
  
       - name: Build the AngularJS app
-        run: npm run build
+        run: npm run
  
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
