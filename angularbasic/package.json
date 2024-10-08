@@ -1,0 +1,15 @@
+{
+    "name": "angularjs-hello-world",
+    "version": "1.0.0",
+    "description": "A simple Hello World app using AngularJS",
+    "main": "index.html",
+    "scripts": {
+      "start": "lite-server"
+    },
+    "author": "Testing",
+    "license": "MIT",
+    "devDependencies": {
+      "lite-server": "^2.6.1"
+    }
+  }
+  
