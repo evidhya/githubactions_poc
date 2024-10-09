@@ -22,14 +22,14 @@ jobs:
         with:
           node-version: '16'
 
-      - name: Change directory
-        run: cd my-angular-app  # Adjust this to your Angular app's directory
+    #  - name: Change directory
+    #   run: cd my-angular-app  # Adjust this to your Angular app's directory
 
       - name: Install dependencies
         run: npm install
 
       - name: Build the Angular app
-        run: npm run build -- --prod
+        run: npm run build
 
      # - name: Archive production artifacts
      #  uses: actions/upload-artifact@v3
