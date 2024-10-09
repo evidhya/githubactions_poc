@@ -31,8 +31,8 @@ jobs:
       - name: Build the Angular app
         run: npm run build -- --prod
 
-      - name: Archive production artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: angular-build
-          path: dist/
+     # - name: Archive production artifacts
+     #  uses: actions/upload-artifact@v3
+     #   with:
+     #    name: angular-build
+     #     path: dist/
