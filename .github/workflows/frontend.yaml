@@ -26,11 +26,11 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        working-directory: my-angular-app  # Set working directory to my-angular-app
+        working-directory: my-angular-app/src  # Set working directory to my-angular-app
 
       - name: Build the Angular app
         run: npm run build
-        working-directory: my-angular-app  # Set working directory to my-angular-app
+        working-directory: my-angular-app/src  # Set working directory to my-angular-app
 
     #  - name: Archive production artifacts
     #    uses: actions/upload-artifact@v2
