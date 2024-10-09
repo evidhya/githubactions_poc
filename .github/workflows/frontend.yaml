@@ -32,8 +32,8 @@ jobs:
         run: npm run build
         working-directory: my-angular-app  # Set working directory to my-angular-app
 
-      - name: Archive production artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: angular-build
-          path: my-angular-app/dist/  # Adjust if your output directory is different
+    #  - name: Archive production artifacts
+    #    uses: actions/upload-artifact@v2
+    #   with:
+    #      name: angular-build
+    #      path: my-angular-app/dist/  # Adjust if your output directory is different
