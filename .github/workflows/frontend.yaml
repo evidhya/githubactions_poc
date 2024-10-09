@@ -3,8 +3,7 @@ name: Build Angular App
 on:
   push:
     branches:
-      - main
-  workflow_dispatch:
+      - main  # Change to your default branch if different
 
 jobs:
   build:
@@ -12,27 +11,29 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
       - name: List directory contents
-        run: ls -R
+        run: ls -R  # This will list files recursively to help debug
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v2
         with:
-          node-version: '16'
+          node-version: '16'  # Specify the Node.js version
 
-    #  - name: Change directory
-    #   run: cd my-angular-app  # Adjust this to your Angular app's directory
+      - name: Change directory to Angular app
+        run: cd my-angular-app  # Navigate to the Angular app directory
 
       - name: Install dependencies
         run: npm install
+        working-directory: my-angular-app  # Set working directory to my-angular-app
 
       - name: Build the Angular app
         run: npm run build
+        working-directory: my-angular-app  # Set working directory to my-angular-app
 
-     # - name: Archive production artifacts
-     #  uses: actions/upload-artifact@v3
-     #   with:
-     #    name: angular-build
-     #     path: dist/
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: angular-build
+          path: my-angular-app/dist/  # Adjust if your output directory is different
