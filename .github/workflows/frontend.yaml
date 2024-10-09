@@ -1,36 +1,38 @@
-name: Frontend CI/CD
- 
+name: Build Angular App
+
 on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
   workflow_dispatch:
- 
+
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
- 
+
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
- 
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: List directory contents
+        run: ls -R
+
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v2
         with:
-          node-version: '18' # Specify your Node.js version
-          
+          node-version: '16'
+
       - name: Change directory
-        run: cd angularbasic
-        
+        run: cd my-angular-app  # Adjust this to your Angular app's directory
+
       - name: Install dependencies
         run: npm install
- 
-#      - name: Run tests
-#        run: npm test
-#        continue-on-error: true # Optional if no tests are set up
- 
-      - name: Build the AngularJS app
-        run: npm run
+
+      - name: Build the Angular app
+        run: npm run build -- --prod
+
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: angular-build
+          path: dist/
