@@ -1,39 +1,27 @@
 name: Build Angular App
-
+ 
 on:
   push:
     branches:
-      - main  # Change to your default branch if different
-
+      - main  # You can change this to your default branch if different
+ 
 jobs:
   build:
     runs-on: ubuntu-latest
-
+ 
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
-
-      - name: List directory contents
-        run: ls -R my-angular-app/src # This will list files recursively to help debug
-
+ 
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '16'  # Specify the Node.js version
-
-      - name: Change directory to Angular app
-        run: cd my-angular-app  # Navigate to the Angular app directory
-
+          node-version: '16'  # Specify the Node.js version you want
+ 
       - name: Install dependencies
         run: npm install
-        working-directory: my-angular-app/src  # Set working directory to my-angular-app
-
+        working-directory: my-angular-app  # Set the working directory to the Angular app folder
+ 
       - name: Build the Angular app
         run: npm run build
-        working-directory: my-angular-app/src  # Set working directory to my-angular-app
-
-    #  - name: Archive production artifacts
-    #    uses: actions/upload-artifact@v2
-    #   with:
-    #      name: angular-build
-    #      path: my-angular-app/dist/  # Adjust if your output directory is different
+        working-directory: my-angular-app  # Build the Angular app
