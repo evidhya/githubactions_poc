@@ -21,7 +21,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18' # Specify your Node.js version
- 
+          
+      - name: Change directory
+        run: cd angularbasic
+        
       - name: Install dependencies
         run: npm install
  
@@ -31,9 +34,3 @@ jobs:
  
       - name: Build the AngularJS app
         run: npm run
- 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist # Replace with your output folder
